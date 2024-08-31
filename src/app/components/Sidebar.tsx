@@ -5,7 +5,7 @@ import Image from 'next/image'
 import SidebarMenuItem from './SidebarMenuItem';
 //icons
 import { IoLogoReact, IoBrowsersOutline, IoCalculator } from "react-icons/io5";
-
+import { SiPokemon } from "react-icons/si";
 
 
 
@@ -23,6 +23,13 @@ const menuItems = [
         icon: <IoCalculator size={40}/>,
         title: 'Counter',
         subTitle: 'Counter Client Side',
+
+    },
+    {
+        path: '/dashboard/pokemons',
+        icon: <SiPokemon size={70}/>,
+        title: 'Pokemons',
+        subTitle: 'Pokemons API Page',
 
     },
 
