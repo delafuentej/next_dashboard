@@ -1,5 +1,6 @@
+import { Sidebar } from '../../components';
 import React from 'react'
-import { Sidebar } from '../components';
+
 
 
 const DashboardLayout =({children}: {children: React.ReactNode}) =>{
@@ -8,7 +9,7 @@ const DashboardLayout =({children}: {children: React.ReactNode}) =>{
    
     <div className="flex">
        
-       <Sidebar />
+      <Sidebar />
         <div className='p-2 w-full text-slate-900'>
             {children}
         </div>

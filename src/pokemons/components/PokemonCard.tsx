@@ -20,7 +20,7 @@ export const PokemonCard = ({pokemon}: Props) => {
                                 width= {100}
                                 height= {100}
                                 alt={name}
-                                // lazy-load priority
+                                // lazy-load priority=> for images to be uploaded on demand
                                 priority={false}
 
                      />
