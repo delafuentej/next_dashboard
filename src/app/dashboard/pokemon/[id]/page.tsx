@@ -1,5 +1,5 @@
 import React from 'react'
-import { PokemonsResponse } from '@/pokemons';
+import { PokemonResponse } from '@/pokemons';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -7,12 +7,33 @@ interface Props {
     params: {id: string}
 }
 
+//static generation => execution in build time
+export const generateStaticParams = async() => {
+
+  const static151Pokemons = Array.from({length: 151}).map((v,i) => `${i + 1}`);
+
+  return static151Pokemons.map ( id => ({
+    id: id
+  }));
+    // return [
+    //   {id: '1'},
+    //   {id: '2'},
+    //   {id: '3'},
+    //   {id: '4'},
+    //   {id: '5'},
+    //   {id: '6'},
+    // ]
+}
+
+
+
+
 // export const metadata = {
 //     title:'Pokemon Page',
 //     description: 'Pokemon Page Info',
 // }
 
-export const generateMetadata = async({params}: Props): Promise<Metadata>=>{
+export async function generateMetadata ({params}: Props): Promise<Metadata>{
   try{
     const {id, name} = await getPokemon(params.id);
     return{
@@ -28,13 +49,13 @@ export const generateMetadata = async({params}: Props): Promise<Metadata>=>{
   }
     
 }
-const getPokemon = async(id: string): Promise<PokemonsResponse>=>{
+const getPokemon = async(id: string): Promise<PokemonResponse>=>{
   try{
     const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
-      cache:'force-cache'
-     // next: {
-        //  revalidate: 60 * 60 * 30 * 6
-     // }
+     // cache:'force-cache',
+      next: {
+          revalidate: 60 * 60 * 30 * 6
+      }
   })
       .then( res => res.json());
 

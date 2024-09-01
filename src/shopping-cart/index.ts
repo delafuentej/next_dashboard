@@ -1,1 +1,1 @@
-export * from './components/CartCounter';
+import * as CartCounter from './components/CartCounter';

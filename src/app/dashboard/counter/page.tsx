@@ -17,7 +17,7 @@ const Counter = () =>{
        <div className='flex flex-col items-center justify-center w-full h-full'>
       <span>Products in shopping cart</span>
       {/* 'use client' => useState*/}
-      <CartCounter value={30}/>
+      <CartCounter />
      
     </div>
    
