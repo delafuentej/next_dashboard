@@ -24,7 +24,7 @@ const Pokemons = async() => {
     console.log('pokemons', pokemons)
     return (
         <div className='flex flex-col'>
-            <span className='text-center my-6 text-4xl'>Pokemon´s List<small> static</small></span>
+            <span className='text-center my-6 text-4xl'>Pokemon´s List<small className='text-blue-500'> static</small></span>
             <PokemonGrid 
                 pokemons={pokemons}
             />

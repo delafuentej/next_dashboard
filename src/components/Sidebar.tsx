@@ -4,7 +4,7 @@ import Image from 'next/image'
 //components
 import SidebarMenuItem from './SidebarMenuItem';
 //icons
-import { IoLogoReact, IoBrowsersOutline, IoCalculator } from "react-icons/io5";
+import { IoLogoReact, IoBrowsersOutline, IoCalculator, IoHeartOutline } from "react-icons/io5";
 import { SiPokemon } from "react-icons/si";
 
 
@@ -32,6 +32,14 @@ const menuItems = [
         subTitle: 'Pokemons API Page- SG',
 
     },
+    {
+        path: '/dashboard/pokemons/favourites',
+        icon: <IoHeartOutline size={70}/>,
+        title: 'Favourites',
+        subTitle: 'Global State',
+
+    },
+
 
    
 ]
