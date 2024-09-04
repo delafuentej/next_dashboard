@@ -1,5 +1,11 @@
 import { SimpleWidget } from '@/components';
-import React from 'react'
+import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Admin Dashboard',
+  description: 'General Info'
+}
 
 const Main = () => {
   return(
