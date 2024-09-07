@@ -22,11 +22,7 @@ export const SimpleWidget = ({title, subTitle, label, icon, href}: Props) => {
         <div className="my-3">
           <div className="flex flex-row items-center justify-center space-x-1 ">
 
-            { icon && 
-              (<div id="icon">
-              {/* Icono irá aquí */}
-                <IoCafeOutline size={50} className="text-blue-500"/>
-              </div>)
+            { icon 
             }
             
             <div id="temp" className="text-center">
