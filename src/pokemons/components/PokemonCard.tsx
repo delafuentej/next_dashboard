@@ -1,14 +1,27 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import { SimplePokemon } from "../interfaces/simple-pokemon";
-import { IoHeart } from "react-icons/io5";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { IoHeart, IoHeartOutline } from "react-icons/io5";
+import { toggleFavourite } from "@/store/pokemons/pokemonsSlice";
 
 interface Props {
-    pokemon: SimplePokemon;
+    pokemon: SimplePokemon;  
 }
 
 export const PokemonCard = ({pokemon}: Props) => {
     const {id, name} = pokemon;
+
+    const isFavourite = useAppSelector( state => !!state.pokemons[id])
+    const dispatch = useAppDispatch();
+    // console.log('isFavourite', isFavourite)
+
+    const onToggleFavourite = () => {
+       dispatch(toggleFavourite(pokemon));
+        
+    }
     
   return (
              <div className=" mx-auto right-0 mt-2 w-60">
@@ -37,19 +50,22 @@ export const PokemonCard = ({pokemon}: Props) => {
                         </div>
                         </div>
                         <div className=" flex justify-center border-b">
-                            <Link href="/account/campaigns" className="px-4 py-2 hover:bg-gray-100 flex" >
+                            <div 
+                                onClick={onToggleFavourite}
+                                className="px-4 py-2 hover:bg-gray-100 flex cursor-pointer" >
                               
                                     <div className="text-red-600 text-center">
-                                    <IoHeart size={25}/>
+                                        { isFavourite ?  (<IoHeart size={25}/>) :  (<IoHeartOutline size={25}/>)}
+                                   
                                     </div>
                                     <div className="pl-3">
                                     <p className="text-sm font-medium text-gray-800 leading-none">
-                                        Not favourite
+                                        { isFavourite ? 'Favourite': 'Not favourite'}
                                     </p>
-                                    <p className="text-xs text-gray-500">View your campaigns</p>
+                                    <p className="text-xs text-gray-500">Click here to change</p>
                                     </div>
                             
-                            </Link>
+                            </div>
                             
                         </div>
     

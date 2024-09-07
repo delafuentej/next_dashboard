@@ -33,7 +33,7 @@ const menuItems = [
 
     },
     {
-        path: '/dashboard/pokemons/favourites',
+        path: '/dashboard/favourites',
         icon: <IoHeartOutline size={70}/>,
         title: 'Favourites',
         subTitle: 'Global State',
