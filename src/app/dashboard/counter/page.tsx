@@ -3,7 +3,7 @@
 
 import CartCounter from '@/shopping-cart/components/CartCounter';
 import { Metadata } from 'next';
-import React, { useState } from 'react';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Shopping Cart',
@@ -17,7 +17,7 @@ const Counter = () =>{
        <div className='flex flex-col items-center justify-center w-full h-full'>
       <span>Products in shopping cart</span>
       {/* 'use client' => useState*/}
-      <CartCounter />
+      <CartCounter value={45} />
      
     </div>
    
